@@ -1,0 +1,508 @@
+Output from: strace -o strace.txt -f sh -c 'ls /tmp | grep me'
+
+
+24237 execve("/usr/bin/sh", ["sh", "-c", "ls /tmp | grep me"], 0xffcffd14 /* 26 vars */) = 0
+24237 brk(NULL)                         = 0x17ea000
+24237 uname({sysname="Linux", nodename="raspberrypi", ...}) = 0
+24237 access("/etc/ld.so.preload", R_OK) = 0
+24237 openat(AT_FDCWD, "/etc/ld.so.preload", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+24237 fstat64(3, {st_mode=S_IFREG|0644, st_size=54, ...}) = 0
+24237 mmap2(NULL, 54, PROT_READ|PROT_WRITE, MAP_PRIVATE, 3, 0) = 0xf78c3000
+24237 close(3)                          = 0
+24237 readlink("/proc/self/exe", "/usr/bin/dash", 4096) = 13
+24237 openat(AT_FDCWD, "/usr/lib/arm-linux-gnueabihf/libarmmem-v8l.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+24237 read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0(\0\1\0\0\0\254\3\0\0004\0\0\0"..., 512) = 512
+24237 fstat64(3, {st_mode=S_IFREG|0644, st_size=17708, ...}) = 0
+24237 mmap2(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xf78c1000
+24237 mmap2(NULL, 81964, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xf787e000
+24237 mprotect(0xf7882000, 61440, PROT_NONE) = 0
+24237 mmap2(0xf7891000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000) = 0xf7891000
+24237 close(3)                          = 0
+24237 munmap(0xf78c3000, 54)            = 0
+24237 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+24237 fstat64(3, {st_mode=S_IFREG|0644, st_size=75680, ...}) = 0
+24237 mmap2(NULL, 75680, PROT_READ, MAP_PRIVATE, 3, 0) = 0xf786b000
+24237 close(3)                          = 0
+24237 openat(AT_FDCWD, "/lib/arm-linux-gnueabihf/libc.so.6", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+24237 read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0(\0\1\0\0\0\0y\1\0004\0\0\0"..., 512) = 512
+24237 fstat64(3, {st_mode=S_IFREG|0755, st_size=1315688, ...}) = 0
+24237 mmap2(NULL, 1385020, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xf7718000
+24237 mprotect(0xf7856000, 61440, PROT_NONE) = 0
+24237 mmap2(0xf7865000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x13d000) = 0xf7865000
+24237 mmap2(0xf7868000, 8764, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xf7868000
+24237 close(3)                          = 0
+24237 set_tls(0xf78c1fc0)               = 0
+24237 mprotect(0xf7865000, 8192, PROT_READ) = 0
+24237 mprotect(0xf7891000, 4096, PROT_READ) = 0
+24237 mprotect(0x35000, 4096, PROT_READ) = 0
+24237 mprotect(0xf78c5000, 4096, PROT_READ) = 0
+24237 munmap(0xf786b000, 75680)         = 0
+24237 getuid32()                        = 1000
+24237 getgid32()                        = 1000
+24237 getpid()                          = 24237
+24237 rt_sigaction(SIGCHLD, {sa_handler=0x1f830, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0xf7747900}, NULL, 8) = 0
+24237 geteuid32()                       = 1000
+24237 brk(NULL)                         = 0x17ea000
+24237 brk(0x180b000)                    = 0x180b000
+24237 getppid()                         = 24234
+24237 stat64("/home/pi/repos/linux-reversing-tools", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+24237 stat64(".", {st_mode=S_IFDIR|0755, st_size=4096, ...}) = 0
+24237 geteuid32()                       = 1000
+24237 getegid32()                       = 1000
+24237 rt_sigaction(SIGINT, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+24237 rt_sigaction(SIGINT, {sa_handler=0x1f830, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0xf7747900}, NULL, 8) = 0
+24237 rt_sigaction(SIGQUIT, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+24237 rt_sigaction(SIGQUIT, {sa_handler=SIG_DFL, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0xf7747900}, NULL, 8) = 0
+24237 rt_sigaction(SIGTERM, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+24237 rt_sigaction(SIGTERM, {sa_handler=SIG_DFL, sa_mask=~[RTMIN RT_1], sa_flags=SA_RESTORER, sa_restorer=0xf7747900}, NULL, 8) = 0
+24237 stat64("/usr/local/sbin/ls", 0xff8bf248) = -1 ENOENT (No such file or directory)
+24237 stat64("/usr/local/bin/ls", 0xff8bf248) = -1 ENOENT (No such file or directory)
+24237 stat64("/usr/sbin/ls", 0xff8bf248) = -1 ENOENT (No such file or directory)
+24237 stat64("/usr/bin/ls", {st_mode=S_IFREG|0755, st_size=112976, ...}) = 0
+24237 pipe([3, 4])                      = 0
+24237 clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0xf78c1b68) = 24238
+24237 close(4 <unfinished ...>
+24238 close(3 <unfinished ...>
+24237 <... close resumed>)              = 0
+24238 <... close resumed>)              = 0
+24237 stat64("/usr/local/sbin/grep",  <unfinished ...>
+24238 dup2(4, 1 <unfinished ...>
+24237 <... stat64 resumed>0xff8bf248)   = -1 ENOENT (No such file or directory)
+24238 <... dup2 resumed>)               = 1
+24237 stat64("/usr/local/bin/grep",  <unfinished ...>
+24238 close(4 <unfinished ...>
+24237 <... stat64 resumed>0xff8bf248)   = -1 ENOENT (No such file or directory)
+24238 <... close resumed>)              = 0
+24237 stat64("/usr/sbin/grep", 0xff8bf248) = -1 ENOENT (No such file or directory)
+24238 execve("/usr/bin/ls", ["ls", "/tmp"], 0x3861c /* 26 vars */ <unfinished ...>
+24237 stat64("/usr/bin/grep", {st_mode=S_IFREG|0755, st_size=161368, ...}) = 0
+24237 clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0xf78c1b68) = 24239
+24238 <... execve resumed>)             = 0
+24237 close(3)                          = 0
+24238 brk(NULL <unfinished ...>
+24237 close(-1 <unfinished ...>
+24238 <... brk resumed>)                = 0x15ba000
+24237 <... close resumed>)              = -1 EBADF (Bad file descriptor)
+24238 uname( <unfinished ...>
+24237 wait4(-1,  <unfinished ...>
+24238 <... uname resumed>{sysname="Linux", nodename="raspberrypi", ...}) = 0
+24239 dup2(3, 0 <unfinished ...>
+24238 access("/etc/ld.so.preload", R_OK <unfinished ...>
+24239 <... dup2 resumed>)               = 0
+24238 <... access resumed>)             = 0
+24239 close(3 <unfinished ...>
+24238 openat(AT_FDCWD, "/etc/ld.so.preload", O_RDONLY|O_LARGEFILE|O_CLOEXEC <unfinished ...>
+24239 <... close resumed>)              = 0
+24238 <... openat resumed>)             = 3
+24239 execve("/usr/bin/grep", ["grep", "me"], 0x3861c /* 26 vars */ <unfinished ...>
+24238 fstat64(3, {st_mode=S_IFREG|0644, st_size=54, ...}) = 0
+24238 mmap2(NULL, 54, PROT_READ|PROT_WRITE, MAP_PRIVATE, 3, 0) = 0xf7a15000
+24238 close(3)                          = 0
+24239 <... execve resumed>)             = 0
+24238 readlink("/proc/self/exe",  <unfinished ...>
+24239 brk(NULL <unfinished ...>
+24238 <... readlink resumed>"/usr/bin/ls", 4096) = 11
+24239 <... brk resumed>)                = 0x1fff000
+24238 openat(AT_FDCWD, "/usr/lib/arm-linux-gnueabihf/libarmmem-v8l.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC <unfinished ...>
+24239 uname( <unfinished ...>
+24238 <... openat resumed>)             = 3
+24239 <... uname resumed>{sysname="Linux", nodename="raspberrypi", ...}) = 0
+24238 read(3,  <unfinished ...>
+24239 access("/etc/ld.so.preload", R_OK <unfinished ...>
+24238 <... read resumed>"\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0(\0\1\0\0\0\254\3\0\0004\0\0\0"..., 512) = 512
+24239 <... access resumed>)             = 0
+24238 fstat64(3,  <unfinished ...>
+24239 openat(AT_FDCWD, "/etc/ld.so.preload", O_RDONLY|O_LARGEFILE|O_CLOEXEC <unfinished ...>
+24238 <... fstat64 resumed>{st_mode=S_IFREG|0644, st_size=17708, ...}) = 0
+24239 <... openat resumed>)             = 3
+24238 mmap2(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+24239 fstat64(3,  <unfinished ...>
+24238 <... mmap2 resumed>)              = 0xf7a13000
+24239 <... fstat64 resumed>{st_mode=S_IFREG|0644, st_size=54, ...}) = 0
+24238 mmap2(NULL, 81964, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0 <unfinished ...>
+24239 mmap2(NULL, 54, PROT_READ|PROT_WRITE, MAP_PRIVATE, 3, 0 <unfinished ...>
+24238 <... mmap2 resumed>)              = 0xf79d0000
+24239 <... mmap2 resumed>)              = 0xf7824000
+24238 mprotect(0xf79d4000, 61440, PROT_NONE <unfinished ...>
+24239 close(3 <unfinished ...>
+24238 <... mprotect resumed>)           = 0
+24239 <... close resumed>)              = 0
+24238 mmap2(0xf79e3000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000 <unfinished ...>
+24239 readlink("/proc/self/exe",  <unfinished ...>
+24238 <... mmap2 resumed>)              = 0xf79e3000
+24239 <... readlink resumed>"/usr/bin/grep", 4096) = 13
+24238 close(3 <unfinished ...>
+24239 openat(AT_FDCWD, "/usr/lib/arm-linux-gnueabihf/libarmmem-v8l.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC <unfinished ...>
+24238 <... close resumed>)              = 0
+24239 <... openat resumed>)             = 3
+24238 munmap(0xf7a15000, 54 <unfinished ...>
+24239 read(3,  <unfinished ...>
+24238 <... munmap resumed>)             = 0
+24239 <... read resumed>"\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0(\0\1\0\0\0\254\3\0\0004\0\0\0"..., 512) = 512
+24238 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_LARGEFILE|O_CLOEXEC <unfinished ...>
+24239 fstat64(3,  <unfinished ...>
+24238 <... openat resumed>)             = 3
+24239 <... fstat64 resumed>{st_mode=S_IFREG|0644, st_size=17708, ...}) = 0
+24238 fstat64(3,  <unfinished ...>
+24239 mmap2(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+24238 <... fstat64 resumed>{st_mode=S_IFREG|0644, st_size=75680, ...}) = 0
+24239 <... mmap2 resumed>)              = 0xf7822000
+24238 mmap2(NULL, 75680, PROT_READ, MAP_PRIVATE, 3, 0 <unfinished ...>
+24239 mmap2(NULL, 81964, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0 <unfinished ...>
+24238 <... mmap2 resumed>)              = 0xf79bd000
+24239 <... mmap2 resumed>)              = 0xf77df000
+24238 close(3 <unfinished ...>
+24239 mprotect(0xf77e3000, 61440, PROT_NONE <unfinished ...>
+24238 <... close resumed>)              = 0
+24239 <... mprotect resumed>)           = 0
+24238 openat(AT_FDCWD, "/lib/arm-linux-gnueabihf/libselinux.so.1", O_RDONLY|O_LARGEFILE|O_CLOEXEC <unfinished ...>
+24239 mmap2(0xf77f2000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x3000 <unfinished ...>
+24238 <... openat resumed>)             = 3
+24239 <... mmap2 resumed>)              = 0xf77f2000
+24238 read(3,  <unfinished ...>
+24239 close(3 <unfinished ...>
+24238 <... read resumed>"\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0(\0\1\0\0\0\20R\0\0004\0\0\0"..., 512) = 512
+24239 <... close resumed>)              = 0
+24238 fstat64(3,  <unfinished ...>
+24239 munmap(0xf7824000, 54 <unfinished ...>
+24238 <... fstat64 resumed>{st_mode=S_IFREG|0644, st_size=144896, ...}) = 0
+24239 <... munmap resumed>)             = 0
+24238 mmap2(NULL, 216100, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0 <unfinished ...>
+24239 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_LARGEFILE|O_CLOEXEC <unfinished ...>
+24238 <... mmap2 resumed>)              = 0xf7988000
+24239 <... openat resumed>)             = 3
+24238 mprotect(0xf79ab000, 61440, PROT_NONE <unfinished ...>
+24239 fstat64(3,  <unfinished ...>
+24238 <... mprotect resumed>)           = 0
+24239 <... fstat64 resumed>{st_mode=S_IFREG|0644, st_size=75680, ...}) = 0
+24238 mmap2(0xf79ba000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x22000 <unfinished ...>
+24239 mmap2(NULL, 75680, PROT_READ, MAP_PRIVATE, 3, 0 <unfinished ...>
+24238 <... mmap2 resumed>)              = 0xf79ba000
+24239 <... mmap2 resumed>)              = 0xf77cc000
+24238 mmap2(0xf79bc000, 3108, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+24239 close(3 <unfinished ...>
+24238 <... mmap2 resumed>)              = 0xf79bc000
+24239 <... close resumed>)              = 0
+24238 close(3 <unfinished ...>
+24239 openat(AT_FDCWD, "/lib/arm-linux-gnueabihf/libpcre.so.3", O_RDONLY|O_LARGEFILE|O_CLOEXEC <unfinished ...>
+24238 <... close resumed>)              = 0
+24239 <... openat resumed>)             = 3
+24238 openat(AT_FDCWD, "/lib/arm-linux-gnueabihf/libc.so.6", O_RDONLY|O_LARGEFILE|O_CLOEXEC <unfinished ...>
+24239 read(3,  <unfinished ...>
+24238 <... openat resumed>)             = 3
+24239 <... read resumed>"\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0(\0\1\0\0\0\250\16\0\0004\0\0\0"..., 512) = 512
+24238 read(3,  <unfinished ...>
+24239 fstat64(3,  <unfinished ...>
+24238 <... read resumed>"\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0(\0\1\0\0\0\0y\1\0004\0\0\0"..., 512) = 512
+24239 <... fstat64 resumed>{st_mode=S_IFREG|0644, st_size=419152, ...}) = 0
+24238 fstat64(3,  <unfinished ...>
+24239 mmap2(NULL, 483412, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0 <unfinished ...>
+24238 <... fstat64 resumed>{st_mode=S_IFREG|0755, st_size=1315688, ...}) = 0
+24239 <... mmap2 resumed>)              = 0xf7755000
+24238 mmap2(NULL, 1385020, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0 <unfinished ...>
+24239 mprotect(0xf77bb000, 61440, PROT_NONE <unfinished ...>
+24238 <... mmap2 resumed>)              = 0xf7835000
+24239 <... mprotect resumed>)           = 0
+24238 mprotect(0xf7973000, 61440, PROT_NONE <unfinished ...>
+24239 mmap2(0xf77ca000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x65000 <unfinished ...>
+24238 <... mprotect resumed>)           = 0
+24239 <... mmap2 resumed>)              = 0xf77ca000
+24238 mmap2(0xf7982000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x13d000 <unfinished ...>
+24239 close(3 <unfinished ...>
+24238 <... mmap2 resumed>)              = 0xf7982000
+24239 <... close resumed>)              = 0
+24239 openat(AT_FDCWD, "/lib/arm-linux-gnueabihf/libdl.so.2", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+24239 read(3,  <unfinished ...>
+24238 mmap2(0xf7985000, 8764, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+24239 <... read resumed>"\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0(\0\1\0\0\0 \n\0\0004\0\0\0"..., 512) = 512
+24239 fstat64(3,  <unfinished ...>
+24238 <... mmap2 resumed>)              = 0xf7985000
+24239 <... fstat64 resumed>{st_mode=S_IFREG|0644, st_size=13864, ...}) = 0
+24239 mmap2(NULL, 78020, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0 <unfinished ...>
+24238 close(3 <unfinished ...>
+24239 <... mmap2 resumed>)              = 0xf7741000
+24239 mprotect(0xf7744000, 61440, PROT_NONE <unfinished ...>
+24238 <... close resumed>)              = 0
+24239 <... mprotect resumed>)           = 0
+24239 mmap2(0xf7753000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000 <unfinished ...>
+24238 openat(AT_FDCWD, "/lib/arm-linux-gnueabihf/libpcre2-8.so.0", O_RDONLY|O_LARGEFILE|O_CLOEXEC <unfinished ...>
+24239 <... mmap2 resumed>)              = 0xf7753000
+24239 close(3 <unfinished ...>
+24238 <... openat resumed>)             = 3
+24239 <... close resumed>)              = 0
+24239 openat(AT_FDCWD, "/lib/arm-linux-gnueabihf/libc.so.6", O_RDONLY|O_LARGEFILE|O_CLOEXEC <unfinished ...>
+24238 read(3,  <unfinished ...>
+24239 <... openat resumed>)             = 3
+24239 read(3,  <unfinished ...>
+24238 <... read resumed>"\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0(\0\1\0\0\0\220\31\0\0004\0\0\0"..., 512) = 512
+24239 <... read resumed>"\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0(\0\1\0\0\0\0y\1\0004\0\0\0"..., 512) = 512
+24239 fstat64(3,  <unfinished ...>
+24238 fstat64(3,  <unfinished ...>
+24239 <... fstat64 resumed>{st_mode=S_IFREG|0755, st_size=1315688, ...}) = 0
+24239 mmap2(NULL, 1385020, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0 <unfinished ...>
+24238 <... fstat64 resumed>{st_mode=S_IFREG|0644, st_size=563040, ...}) = 0
+24239 <... mmap2 resumed>)              = 0xf75ee000
+24239 mprotect(0xf772c000, 61440, PROT_NONE <unfinished ...>
+24238 mmap2(NULL, 627292, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0 <unfinished ...>
+24239 <... mprotect resumed>)           = 0
+24238 <... mmap2 resumed>)              = 0xf779b000
+24239 mmap2(0xf773b000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x13d000 <unfinished ...>
+24238 mprotect(0xf7824000, 61440, PROT_NONE <unfinished ...>
+24239 <... mmap2 resumed>)              = 0xf773b000
+24238 <... mprotect resumed>)           = 0
+24239 mmap2(0xf773e000, 8764, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+24238 mmap2(0xf7833000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x88000 <unfinished ...>
+24239 <... mmap2 resumed>)              = 0xf773e000
+24238 <... mmap2 resumed>)              = 0xf7833000
+24239 close(3 <unfinished ...>
+24238 close(3 <unfinished ...>
+24239 <... close resumed>)              = 0
+24238 <... close resumed>)              = 0
+24239 openat(AT_FDCWD, "/lib/arm-linux-gnueabihf/libpthread.so.0", O_RDONLY|O_LARGEFILE|O_CLOEXEC <unfinished ...>
+24238 openat(AT_FDCWD, "/lib/arm-linux-gnueabihf/libdl.so.2", O_RDONLY|O_LARGEFILE|O_CLOEXEC <unfinished ...>
+24239 <... openat resumed>)             = 3
+24238 <... openat resumed>)             = 3
+24239 read(3,  <unfinished ...>
+24238 read(3,  <unfinished ...>
+24239 <... read resumed>"\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0(\0\1\0\0\0\204M\0\0004\0\0\0"..., 512) = 512
+24238 <... read resumed>"\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0(\0\1\0\0\0 \n\0\0004\0\0\0"..., 512) = 512
+24239 fstat64(3,  <unfinished ...>
+24238 fstat64(3,  <unfinished ...>
+24239 <... fstat64 resumed>{st_mode=S_IFREG|0755, st_size=137364, ...}) = 0
+24238 <... fstat64 resumed>{st_mode=S_IFREG|0644, st_size=13864, ...}) = 0
+24239 mmap2(NULL, 176728, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0 <unfinished ...>
+24238 mmap2(NULL, 78020, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0 <unfinished ...>
+24239 <... mmap2 resumed>)              = 0xf75c2000
+24238 <... mmap2 resumed>)              = 0xf7787000
+24239 mprotect(0xf75da000, 65536, PROT_NONE <unfinished ...>
+24238 mprotect(0xf778a000, 61440, PROT_NONE <unfinished ...>
+24239 <... mprotect resumed>)           = 0
+24238 <... mprotect resumed>)           = 0
+24239 mmap2(0xf75ea000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x18000 <unfinished ...>
+24238 mmap2(0xf7799000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000 <unfinished ...>
+24239 <... mmap2 resumed>)              = 0xf75ea000
+24238 <... mmap2 resumed>)              = 0xf7799000
+24239 mmap2(0xf75ec000, 4696, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+24238 close(3 <unfinished ...>
+24239 <... mmap2 resumed>)              = 0xf75ec000
+24238 <... close resumed>)              = 0
+24239 close(3 <unfinished ...>
+24238 openat(AT_FDCWD, "/lib/arm-linux-gnueabihf/libpthread.so.0", O_RDONLY|O_LARGEFILE|O_CLOEXEC <unfinished ...>
+24239 <... close resumed>)              = 0
+24238 <... openat resumed>)             = 3
+24239 mmap2(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+24238 read(3,  <unfinished ...>
+24239 <... mmap2 resumed>)              = 0xf7820000
+24238 <... read resumed>"\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0(\0\1\0\0\0\204M\0\0004\0\0\0"..., 512) = 512
+24239 set_tls(0xf7820500 <unfinished ...>
+24238 fstat64(3,  <unfinished ...>
+24239 <... set_tls resumed>)            = 0
+24238 <... fstat64 resumed>{st_mode=S_IFREG|0755, st_size=137364, ...}) = 0
+24238 mmap2(NULL, 176728, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0 <unfinished ...>
+24239 mprotect(0xf773b000, 8192, PROT_READ <unfinished ...>
+24238 <... mmap2 resumed>)              = 0xf775b000
+24239 <... mprotect resumed>)           = 0
+24238 mprotect(0xf7773000, 65536, PROT_NONE <unfinished ...>
+24239 mprotect(0xf75ea000, 4096, PROT_READ <unfinished ...>
+24238 <... mprotect resumed>)           = 0
+24239 <... mprotect resumed>)           = 0
+24238 mmap2(0xf7783000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x18000 <unfinished ...>
+24239 mprotect(0xf7753000, 4096, PROT_READ <unfinished ...>
+24238 <... mmap2 resumed>)              = 0xf7783000
+24239 <... mprotect resumed>)           = 0
+24238 mmap2(0xf7785000, 4696, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+24239 mprotect(0xf77ca000, 4096, PROT_READ <unfinished ...>
+24238 <... mmap2 resumed>)              = 0xf7785000
+24239 <... mprotect resumed>)           = 0
+24238 close(3 <unfinished ...>
+24239 mprotect(0xf77f2000, 4096, PROT_READ <unfinished ...>
+24238 <... close resumed>)              = 0
+24239 <... mprotect resumed>)           = 0
+24238 mmap2(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xf7a11000
+24239 mprotect(0x46000, 4096, PROT_READ <unfinished ...>
+24238 set_tls(0xf7a11500 <unfinished ...>
+24239 <... mprotect resumed>)           = 0
+24238 <... set_tls resumed>)            = 0
+24239 mprotect(0xf7826000, 4096, PROT_READ <unfinished ...>
+24238 mprotect(0xf7982000, 8192, PROT_READ <unfinished ...>
+24239 <... mprotect resumed>)           = 0
+24238 <... mprotect resumed>)           = 0
+24239 munmap(0xf77cc000, 75680 <unfinished ...>
+24238 mprotect(0xf7783000, 4096, PROT_READ <unfinished ...>
+24239 <... munmap resumed>)             = 0
+24238 <... mprotect resumed>)           = 0
+24239 set_tid_address(0xf78200a8 <unfinished ...>
+24238 mprotect(0xf7799000, 4096, PROT_READ <unfinished ...>
+24239 <... set_tid_address resumed>)    = 24239
+24238 <... mprotect resumed>)           = 0
+24239 set_robust_list(0xf78200b0, 12 <unfinished ...>
+24238 mprotect(0xf7833000, 4096, PROT_READ <unfinished ...>
+24239 <... set_robust_list resumed>)    = 0
+24238 <... mprotect resumed>)           = 0
+24239 rt_sigaction(SIGRTMIN, {sa_handler=0xf75c66b8, sa_mask=[], sa_flags=SA_RESTORER|SA_SIGINFO, sa_restorer=0xf761d910},  <unfinished ...>
+24238 mprotect(0xf79ba000, 4096, PROT_READ <unfinished ...>
+24239 <... rt_sigaction resumed>NULL, 8) = 0
+24238 <... mprotect resumed>)           = 0
+24239 rt_sigaction(SIGRT_1, {sa_handler=0xf75c6774, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART|SA_SIGINFO, sa_restorer=0xf761d910},  <unfinished ...>
+24238 mprotect(0xf79e3000, 4096, PROT_READ <unfinished ...>
+24239 <... rt_sigaction resumed>NULL, 8) = 0
+24238 <... mprotect resumed>)           = 0
+24239 rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1],  <unfinished ...>
+24238 mprotect(0x3a000, 4096, PROT_READ <unfinished ...>
+24239 <... rt_sigprocmask resumed>NULL, 8) = 0
+24238 <... mprotect resumed>)           = 0
+24239 ugetrlimit(RLIMIT_STACK,  <unfinished ...>
+24238 mprotect(0xf7a17000, 4096, PROT_READ <unfinished ...>
+24239 <... ugetrlimit resumed>{rlim_cur=8192*1024, rlim_max=RLIM_INFINITY}) = 0
+24238 <... mprotect resumed>)           = 0
+24238 munmap(0xf79bd000, 75680 <unfinished ...>
+24239 brk(NULL <unfinished ...>
+24238 <... munmap resumed>)             = 0
+24239 <... brk resumed>)                = 0x1fff000
+24238 set_tid_address(0xf7a110a8 <unfinished ...>
+24239 brk(0x2020000 <unfinished ...>
+24238 <... set_tid_address resumed>)    = 24238
+24239 <... brk resumed>)                = 0x2020000
+24238 set_robust_list(0xf7a110b0, 12 <unfinished ...>
+24239 openat(AT_FDCWD, "/usr/lib/locale/locale-archive", O_RDONLY|O_LARGEFILE|O_CLOEXEC <unfinished ...>
+24238 <... set_robust_list resumed>)    = 0
+24239 <... openat resumed>)             = 3
+24238 rt_sigaction(SIGRTMIN, {sa_handler=0xf775f6b8, sa_mask=[], sa_flags=SA_RESTORER|SA_SIGINFO, sa_restorer=0xf7864910},  <unfinished ...>
+24239 fstat64(3,  <unfinished ...>
+24238 <... rt_sigaction resumed>NULL, 8) = 0
+24239 <... fstat64 resumed>{st_mode=S_IFREG|0644, st_size=3041456, ...}) = 0
+24238 rt_sigaction(SIGRT_1, {sa_handler=0xf775f774, sa_mask=[], sa_flags=SA_RESTORER|SA_RESTART|SA_SIGINFO, sa_restorer=0xf7864910},  <unfinished ...>
+24239 mmap2(NULL, 2097152, PROT_READ, MAP_PRIVATE, 3, 0 <unfinished ...>
+24238 <... rt_sigaction resumed>NULL, 8) = 0
+24239 <... mmap2 resumed>)              = 0xf73c2000
+24238 rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1],  <unfinished ...>
+24239 mmap2(NULL, 2596864, PROT_READ, MAP_PRIVATE, 3, 0x6d000 <unfinished ...>
+24238 <... rt_sigprocmask resumed>NULL, 8) = 0
+24239 <... mmap2 resumed>)              = 0xf7148000
+24238 ugetrlimit(RLIMIT_STACK,  <unfinished ...>
+24239 close(3 <unfinished ...>
+24238 <... ugetrlimit resumed>{rlim_cur=8192*1024, rlim_max=RLIM_INFINITY}) = 0
+24239 <... close resumed>)              = 0
+24238 statfs("/sys/fs/selinux", 0xffb8719c) = -1 ENOENT (No such file or directory)
+24239 openat(AT_FDCWD, "/usr/lib/arm-linux-gnueabihf/gconv/gconv-modules.cache", O_RDONLY <unfinished ...>
+24238 statfs("/selinux",  <unfinished ...>
+24239 <... openat resumed>)             = 3
+24238 <... statfs resumed>0xffb8719c)   = -1 ENOENT (No such file or directory)
+24239 fstat64(3,  <unfinished ...>
+24238 brk(NULL <unfinished ...>
+24239 <... fstat64 resumed>{st_mode=S_IFREG|0644, st_size=27006, ...}) = 0
+24238 <... brk resumed>)                = 0x15ba000
+24239 mmap2(NULL, 27006, PROT_READ, MAP_SHARED, 3, 0 <unfinished ...>
+24238 brk(0x15db000 <unfinished ...>
+24239 <... mmap2 resumed>)              = 0xf7819000
+24238 <... brk resumed>)                = 0x15db000
+24239 close(3 <unfinished ...>
+24238 openat(AT_FDCWD, "/proc/filesystems", O_RDONLY|O_CLOEXEC <unfinished ...>
+24239 <... close resumed>)              = 0
+24238 <... openat resumed>)             = 3
+24239 futex(0xf773dea8, FUTEX_WAKE_PRIVATE, 2147483647 <unfinished ...>
+24238 fstat64(3,  <unfinished ...>
+24239 <... futex resumed>)              = 0
+24238 <... fstat64 resumed>{st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+24239 sigaltstack({ss_sp=0x47950, ss_flags=0, ss_size=65536},  <unfinished ...>
+24238 read(3,  <unfinished ...>
+24239 <... sigaltstack resumed>NULL)    = 0
+24238 <... read resumed>"nodev\tsysfs\nnodev\ttmpfs\nnodev\tbd"..., 1024) = 383
+24239 openat(AT_FDCWD, "/usr/share/locale/locale.alias", O_RDONLY|O_CLOEXEC <unfinished ...>
+24238 read(3,  <unfinished ...>
+24239 <... openat resumed>)             = 3
+24238 <... read resumed>"", 1024)       = 0
+24239 fstat64(3,  <unfinished ...>
+24238 close(3 <unfinished ...>
+24239 <... fstat64 resumed>{st_mode=S_IFREG|0644, st_size=2996, ...}) = 0
+24238 <... close resumed>)              = 0
+24239 read(3,  <unfinished ...>
+24238 access("/etc/selinux/config", F_OK <unfinished ...>
+24239 <... read resumed>"# Locale name alias data base.\n#"..., 4096) = 2996
+24238 <... access resumed>)             = -1 ENOENT (No such file or directory)
+24239 read(3,  <unfinished ...>
+24238 openat(AT_FDCWD, "/usr/lib/locale/locale-archive", O_RDONLY|O_LARGEFILE|O_CLOEXEC <unfinished ...>
+24239 <... read resumed>"", 4096)       = 0
+24238 <... openat resumed>)             = 3
+24239 close(3 <unfinished ...>
+24238 fstat64(3,  <unfinished ...>
+24239 <... close resumed>)              = 0
+24238 <... fstat64 resumed>{st_mode=S_IFREG|0644, st_size=3041456, ...}) = 0
+24239 openat(AT_FDCWD, "/usr/share/locale/en_US.UTF-8/LC_MESSAGES/grep.mo", O_RDONLY <unfinished ...>
+24238 mmap2(NULL, 2097152, PROT_READ, MAP_PRIVATE, 3, 0 <unfinished ...>
+24239 <... openat resumed>)             = -1 ENOENT (No such file or directory)
+24238 <... mmap2 resumed>)              = 0xf755b000
+24239 openat(AT_FDCWD, "/usr/share/locale/en_US.utf8/LC_MESSAGES/grep.mo", O_RDONLY <unfinished ...>
+24238 mmap2(NULL, 2596864, PROT_READ, MAP_PRIVATE, 3, 0x6d000 <unfinished ...>
+24239 <... openat resumed>)             = -1 ENOENT (No such file or directory)
+24238 <... mmap2 resumed>)              = 0xf72e1000
+24239 openat(AT_FDCWD, "/usr/share/locale/en_US/LC_MESSAGES/grep.mo", O_RDONLY <unfinished ...>
+24238 close(3 <unfinished ...>
+24239 <... openat resumed>)             = -1 ENOENT (No such file or directory)
+24238 <... close resumed>)              = 0
+24239 openat(AT_FDCWD, "/usr/share/locale/en.UTF-8/LC_MESSAGES/grep.mo", O_RDONLY <unfinished ...>
+24238 ioctl(1, TCGETS <unfinished ...>
+24239 <... openat resumed>)             = -1 ENOENT (No such file or directory)
+24238 <... ioctl resumed>, 0xffb87068)  = -1 ENOTTY (Inappropriate ioctl for device)
+24239 openat(AT_FDCWD, "/usr/share/locale/en.utf8/LC_MESSAGES/grep.mo", O_RDONLY <unfinished ...>
+24238 ioctl(1, TIOCGWINSZ <unfinished ...>
+24239 <... openat resumed>)             = -1 ENOENT (No such file or directory)
+24238 <... ioctl resumed>, 0xffb87118)  = -1 ENOTTY (Inappropriate ioctl for device)
+24239 openat(AT_FDCWD, "/usr/share/locale/en/LC_MESSAGES/grep.mo", O_RDONLY <unfinished ...>
+24238 statx(AT_FDCWD, "/tmp", AT_STATX_SYNC_AS_STAT, STATX_MODE,  <unfinished ...>
+24239 <... openat resumed>)             = -1 ENOENT (No such file or directory)
+24238 <... statx resumed>{stx_mask=STATX_BASIC_STATS|STATX_MNT_ID, stx_attributes=0, stx_mode=S_IFDIR|S_ISVTX|0777, stx_size=94208, ...}) = 0
+24239 rt_sigaction(SIGSEGV, {sa_handler=0x1e768, sa_mask=[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_NODEFER|SA_RESETHAND|SA_SIGINFO, sa_restorer=0xf761d910},  <unfinished ...>
+24238 openat(AT_FDCWD, "/tmp", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_CLOEXEC|O_DIRECTORY <unfinished ...>
+24239 <... rt_sigaction resumed>NULL, 8) = 0
+24238 <... openat resumed>)             = 3
+24239 fstat64(1,  <unfinished ...>
+24238 fstat64(3,  <unfinished ...>
+24239 <... fstat64 resumed>{st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}) = 0
+24238 <... fstat64 resumed>{st_mode=S_IFDIR|S_ISVTX|0777, st_size=94208, ...}) = 0
+24239 stat64("/dev/null",  <unfinished ...>
+24238 getdents64(3,  <unfinished ...>
+24239 <... stat64 resumed>{st_mode=S_IFCHR|0666, st_rdev=makedev(0x1, 0x3), ...}) = 0
+24238 <... getdents64 resumed>0x15be908 /* 15 entries */, 32768) = 688
+24238 getdents64(3,  <unfinished ...>
+24239 fstat64(0,  <unfinished ...>
+24238 <... getdents64 resumed>0x15be908 /* 0 entries */, 32768) = 0
+24239 <... fstat64 resumed>{st_mode=S_IFIFO|0600, st_size=0, ...}) = 0
+24238 close(3 <unfinished ...>
+24239 _llseek(0, 0,  <unfinished ...>
+24238 <... close resumed>)              = 0
+24239 <... _llseek resumed>0xffc21c30, SEEK_CUR) = -1 ESPIPE (Illegal seek)
+24238 fstat64(1,  <unfinished ...>
+24239 read(0,  <unfinished ...>
+24238 <... fstat64 resumed>{st_mode=S_IFIFO|0600, st_size=0, ...}) = 0
+24238 write(1, "dhcpcd-pi\nssh-8YGsU53ANrCE\nssh-O"..., 288) = 288
+24239 <... read resumed>"dhcpcd-pi\nssh-8YGsU53ANrCE\nssh-O"..., 98304) = 288
+24238 close(1 <unfinished ...>
+24239 fstat64(1,  <unfinished ...>
+24238 <... close resumed>)              = 0
+24239 <... fstat64 resumed>{st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}) = 0
+24238 close(2 <unfinished ...>
+24239 write(1, "systemd-private-a029e64a2508490c"..., 82 <unfinished ...>
+24238 <... close resumed>)              = 0
+24239 <... write resumed>)              = 82
+24238 exit_group(0)                     = ?
+24239 read(0,  <unfinished ...>
+24238 +++ exited with 0 +++
+24237 <... wait4 resumed>[{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 24238
+24239 <... read resumed>"", 98304)      = 0
+24237 --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=24238, si_uid=1000, si_status=0, si_utime=0, si_stime=1} ---
+24239 close(1 <unfinished ...>
+24237 sigreturn({mask=[]} <unfinished ...>
+24239 <... close resumed>)              = 0
+24237 <... sigreturn resumed>)          = 24238
+24239 close(2 <unfinished ...>
+24237 wait4(-1,  <unfinished ...>
+24239 <... close resumed>)              = 0
+24239 exit_group(0)                     = ?
+24239 +++ exited with 0 +++
+24237 <... wait4 resumed>[{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 24239
+24237 --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=24239, si_uid=1000, si_status=0, si_utime=0, si_stime=1} ---
+24237 sigreturn({mask=[]})              = 24239
+24237 wait4(-1, 0xff8bf1dc, WNOHANG, NULL) = -1 ECHILD (No child processes)
+24237 exit_group(0)                     = ?
+24237 +++ exited with 0 +++
